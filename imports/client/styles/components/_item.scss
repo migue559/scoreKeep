@@ -1,0 +1,17 @@
+.item {
+	background: #ffffff; /* blanco add player*/
+	border:  1px solid #e8e8e8;     /*color de la letra add player*/
+	margin-bottom: 1.3rem; /**/
+	padding: 1.3rem;   	
+
+
+}
+
+.item__message{
+	color: blue;
+	font-size: 1.3rem;
+	font-style: italic;
+	font-weight: 300;
+	text-align: center;   
+}
+/* BEM  Block, Element, Modifier*/

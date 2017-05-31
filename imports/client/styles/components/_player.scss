@@ -1,0 +1,21 @@
+.player {
+	align-items: center;
+	display: flex;; /*permite que los objetos dentro de la senetencia html se mantengan alineados*/
+/*	justify-content: center;
+	justify-content: space-around;*/
+	justify-content: space-between;
+}
+
+.player__name{
+	word-break: break-all;   /*si la cadena es muy larga entonces los botones pierden alineacion en div, con esta linea lo mantenemos*/
+	font-weight: 300;
+	font-size: 1.8rem;
+}
+.player__stats{
+	font-weight: 300;
+	font-style: italic;
+	font-size: 1.3rem;
+}
+.player__actions{
+	flex-shrink: 0;   /*si los nombres son muy largos los botones de accion pierden la alieacion , con esta propiedad se mantienen horizontales*/
+}

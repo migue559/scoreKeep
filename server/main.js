@@ -1,46 +1,60 @@
 import {Meteor}  from 'meteor/meteor';
 import {Players} from './../imports/api/players';
 
+//Meteor.startup( function() {
+Meteor.startup( () => {
+	class Person {
+		constructor(name='anonimo', age=0){//     default name anonimo
+			this.name =name;
+			this.age =age;
+		}
+		getGreetings(){
+	      //return 'Hola yo soy la pistola '+this.name+' .';
+    		return `Hola yo soy la pistola ${this.name}.`;
+		}
+		getDescription(){
+	      //return 'Hola yo soy la pistola '+this.name+' .';
+    		return `${this.name} tiene ${this.age} anios de edad, loco!.`;
+		}
+	}
 
-Meteor.startup( function() {
-//	Players.insert({ 	name:'mike',		score:5	});
-//	Players.update({    name:'mike'                 }, { $set: { score: 45 } } );
-	//console.log(Players.find().fetch());
+	class Employe extends Person{
+		constructor(name,age,title){
+			super(name,age);// se arega super para extender a la clase las propiedades de nombre y edad
+			this.title=title;
+		}
+		getGreetings(){
+			if (this.title){
+				return `Hola yo soy la pistola ${this.name} y trabajo como ${this.title}`
+			} else {
+				return super.getGreetings();   // llama a la funcion gretings de la clase person (super action)
+			}
+		}
+		hasJob(){
+		}
+	}
 
+	class Programmer extends Person{
+		constructor (name,age,preferedLanguage='assambley'){
+		super(name, age);
+		this.preferedLanguage=preferedLanguage;
+		}	
+		getGreetings(){
+			if (this.preferedLanguage) {
+				return `Hola  yo soy ${this.name} y Yo soy un ${this.preferedLanguage} Programmer`;
+			}else {
+				return super.getGreetings();
+			}
+		}
+	}
 
-let squere_1 = function(x){                   //ways to create functios
-	return x*x;
-};
-let squere_2 = (x) => {                       //ways to create functios
-	return x*x;
-};
+	let me =new Employe('Miguel',29,'developer');
+	console.log(me.getGreetings());
 
-let squere_3 = (x) => (x*(x+1));              //ways to create arrow functios
+	let person=new Employe('Emire', 29)
+	console.log(person.getDescription())
+	console.log(person.getGreetings())
 
-let user ={
-	name:'Maicol',
-	sayHi: function(){
-		console.log("Hola"+" "+this.name)           // this es uado para tomar valores de esta instancia
-	},
-	sayHi2: ()=>{
-		console.log("Hola"+" "+this.name)           // this  es uado NNNOOOOOOO tomar valores de esta instancia
-	},
-	sayHi3: ()=>{
-		console.log(arguments)           // this  es uado NNNOOOOOOO tomar valores de esta instancia
-	},
-	sayHi4: function () {
-		console.log(arguments)           // this  es uado NNNOOOOOOO tomar valores de esta instancia
-	}	
-}
-
-console.log(squere_1(9));
-console.log(squere_2(9));
-console.log(squere_3(9));
-
-user.sayHi();
-user.sayHi2();
-user.sayHi3(45,53);
-user.sayHi4(45,53);
-
-
+	let program= new Programmer('Miguel', 29,'python')
+	console.log(program.getGreetings())
 });

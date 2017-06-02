@@ -1,17 +1,21 @@
 /* CSS declarations go here */
-
 $red:red;
 
+$green:#BBE797;
+$blue:#97CAE7;
+$gold:#FFD433;
+
+$green_alt:darken($green,15%);
+$blue_alt:darken($blue,15%);
+$gold_alt:darken($gold,15%);
 
 * {
 	margin : 0;
 	padding: 0;
-
 }
 
 html{
 	font-size: 62.5%;
-
 }
 body {
 	background: #f2f2f2;
